@@ -20,14 +20,6 @@
             android:background="#1d67c2"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-            <SearchView
-                android:layout_marginLeft="0dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="false"
-                android:queryHint="Search"
-                android:layout_marginStart="0dp" />
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -72,18 +64,22 @@
                 android:paddingLeft="8dp"
                 android:text="Covid-19"
                 android:textColor="#1C1C1C"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:paddingStart="8dp"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="8dp"
-                android:text="Ho, hụt hơi hoặc khó thở, sốt, ớn lạnh, đau họng, mới mất vị giác hoặc khứu giác"
+                android:text="Triệu chứng: ho, hụt hơi hoặc khó thở, sốt, ớn lạnh, đau họng, mới mất vị giác hoặc khứu giác"
                 android:textColor="#1C1C1C"
                 android:textSize="12sp"
                 android:textStyle="italic" />
         </LinearLayout>
     </LinearLayout>
+
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

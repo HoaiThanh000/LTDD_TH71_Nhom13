@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="example.javapoint.com.optionmenu.MainActivity">
 
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="ifRoom|collapseActionView"
+        android:title="search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
     <item android:id="@+id/account"
         android:icon="@drawable/ic_account"
         app:showAsAction="always"
