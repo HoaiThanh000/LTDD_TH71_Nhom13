@@ -6,11 +6,10 @@
     <item android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
         app:showAsAction="ifRoom|collapseActionView"
-        android:title="search"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+        android:title="search" />
 
     <item android:id="@+id/account"
         android:icon="@drawable/ic_account"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom|collapseActionView"
         android:title="account"/>
 </menu>

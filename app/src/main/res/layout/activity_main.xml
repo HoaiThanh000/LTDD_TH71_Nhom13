@@ -8,22 +8,41 @@
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#1d67c2"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-        </androidx.appcompat.widget.Toolbar>
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical">
 
+            <FrameLayout
+                android:id="@+id/toolBar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#1d67c2"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+                <com.miguelcatalan.materialsearchview.MaterialSearchView
+                    android:id="@+id/material_search_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nhập triệu chứng,..."
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <include layout="@layout/activity_content_home" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -32,54 +51,4 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="57dp"
-        android:background="#ffffff"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="Tìm kiếm nhiều nhất"
-            android:textColor="#F40E0E"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/botron_duongvien"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:text="Covid-19"
-                android:textColor="#1C1C1C"
-                android:textSize="18sp"
-                android:paddingStart="8dp"
-                tools:ignore="RtlSymmetry" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:text="Triệu chứng: ho, hụt hơi hoặc khó thở, sốt, ớn lạnh, đau họng, mới mất vị giác hoặc khứu giác"
-                android:textColor="#1C1C1C"
-                android:textSize="12sp"
-                android:textStyle="italic" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
