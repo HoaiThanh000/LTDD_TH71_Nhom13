@@ -85,13 +85,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.account:
-                Intent intent = new Intent(this, AccountActivity.class);
-                startActivity(intent);
-                return true;
-
+    public boolean onOptionsItemSelected(MenuItem item){
+        if(item.getItemId() == R.id.account){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

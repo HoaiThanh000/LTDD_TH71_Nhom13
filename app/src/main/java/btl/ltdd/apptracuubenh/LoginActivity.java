@@ -4,7 +4,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,12 +14,13 @@ import android.widget.Toast;
 
 import btl.ltdd.adapter.TkAdapter;
 
-public class AccountActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private ListView listView;
     String[] title = {
-            "Tên tài khoản", "Lịch sử", "Bệnh đã lưu", "Đăng xuất"
+            "Dang nhap", "Dang ky"
     };
-    Integer[] imgid = {R.drawable.img_user, R.drawable.ic_history, R.drawable.ic_disease_saved, R.drawable.ic_logout};
+    Integer[] imgid = {R.drawable.img_user,
+            R.drawable.ic_logout};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +35,8 @@ public class AccountActivity extends AppCompatActivity {
         TkAdapter tkAdapter = new TkAdapter(this, title, imgid);
         listView = (ListView) findViewById(R.id.lv_of_account);
         listView.setAdapter(tkAdapter);
-        final Intent intent1 = new Intent(AccountActivity.this,UserAccountActivity.class);
-        final Intent intent2 = new Intent(AccountActivity.this,HistoryActivity.class);
-        final Intent intent3 = new Intent(AccountActivity.this,SaveActivity.class);
-        final Intent intent4 = new Intent(AccountActivity.this,MainActivity.class);
+        final Intent intent1 = new Intent(LoginActivity.this,SiginActivity.class);
+        final Intent intent2 = new Intent(LoginActivity.this,CreateAccountActivity.class);
         //startActivity(intent1);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,17 +48,12 @@ public class AccountActivity extends AppCompatActivity {
                     case 1:
                         startActivity(intent2);
                         break;
-                    case 2:
-                        startActivity(intent3);
-                        break;
-                    case 3:
-                        startActivity(intent4);
-                        break;
                 }
-                Toast.makeText(AccountActivity.this,"1" + position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this,"1" + position,Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if(item.getItemId()==android.R.id.home){
@@ -68,6 +61,4 @@ public class AccountActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
