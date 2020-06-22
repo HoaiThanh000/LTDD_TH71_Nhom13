@@ -25,11 +25,7 @@ public class DiseaseDetailActivity extends AppCompatActivity {
         String name = intent.getStringExtra("DiseaseName");
         String symptom = intent.getStringExtra("DiseaseSymptom");
         String advice = intent.getStringExtra("DiseaseAdvice");
-        Log.d("mgsDiseaseName", name);
-        Log.d("mgsDiseaseSymptom", symptom);
-        Log.d("mgsDiseaseAdvice", advice);
         pathImage = intent.getStringExtra("DiseaseIll");
-        Log.d("mgsDiseaseIll", pathImage);
         Picasso.with(this).load(pathImage).into(imageView);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         txtDiseaseName.setText(name);

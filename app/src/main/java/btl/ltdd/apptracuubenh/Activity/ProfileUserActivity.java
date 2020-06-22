@@ -4,14 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 import btl.ltdd.apptracuubenh.R;
+import btl.ltdd.apptracuubenh.Util.CheckConnection;
+import btl.ltdd.apptracuubenh.Util.Server;
+import btl.ltdd.apptracuubenh.Util.User;
 
 public class ProfileUserActivity extends AppCompatActivity {
     private TextView txtUserName, txtDangXuat, txtLichSu, txtBenhDaLuu, txtThongTin;
-
+    private String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,11 +36,14 @@ public class ProfileUserActivity extends AppCompatActivity {
         mapping();
 
         Intent intent = getIntent();
-        txtUserName.setText(intent.getStringExtra("username"));
+        user = intent.getStringExtra("username");
+        txtUserName.setText(user);
+
         txtThongTin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), InformationUserActivity.class);
+                intent.putExtra("username", user);
                 startActivity(intent);
             }
         });
@@ -60,4 +80,6 @@ public class ProfileUserActivity extends AppCompatActivity {
         txtBenhDaLuu = findViewById(R.id.txtBenhDaLuu);
         txtThongTin = findViewById(R.id.txtThongTinTK);
     }
+
+
 }

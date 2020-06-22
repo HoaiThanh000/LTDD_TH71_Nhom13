@@ -55,6 +55,7 @@ import btl.ltdd.apptracuubenh.Util.Server;
 import btl.ltdd.apptracuubenh.R;
 import btl.ltdd.apptracuubenh.Adapter.ChapterAdapter;
 import btl.ltdd.apptracuubenh.Adapter.GroupAdapter;
+import btl.ltdd.apptracuubenh.Util.User;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Toolbar toolbar;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView txtUserName;
     private Intent intentCheck;
     private int check;
+    public static ArrayList<User> arrayUser;
     NavigationView navigationView;
     String textSearch = "", user = "";
     DiseaseSearchFragment diseaseSearchFragment;
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mapping();
+        getDataUser();
         intentCheck = getIntent();
         check = (intentCheck.getStringExtra("check") == null) ? 0 : 1;
         user = intentCheck.getStringExtra("userName");
@@ -140,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         txtUserName = headerView.findViewById(R.id.txtTenUserNavHeader);
+        arrayUser = new ArrayList<>();
     }
 
     public void ActionBar() {
@@ -233,5 +237,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.getMenu().getItem(1).setChecked(false);
         navigationView.getMenu().getItem(2).setChecked(false);
         navigationView.getMenu().getItem(3).setChecked(false);
+    }
+
+    public void getDataUser(){
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.pathUser, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                if(response != null){
+                    Log.d("data", String.valueOf(response));
+                    for (int i = 0; i < response.length(); i++){
+                        JSONObject jsonObject = null;
+                        try {
+                            int userID;
+                            String userName, fullName, password, phone, job;
+                            jsonObject = response.getJSONObject(i);
+                            userID = jsonObject.getInt("UserID");
+                            fullName = jsonObject.getString("FullName");
+                            userName = jsonObject.getString("UserName");
+                            password = jsonObject.getString("Password");
+                            phone = jsonObject.getString("Phone");
+                            job = jsonObject.getString("Job");
+                            arrayUser.add(new User(userID, fullName, userName, password, phone, job));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                CheckConnection.showToast_Short(getApplicationContext(), error.toString());
+            }
+        });
+        jsonArrayRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
     }
 }

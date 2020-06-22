@@ -40,9 +40,8 @@
             android:textSize="25dp"
             android:text="Thông tin tài khoản"
             android:layout_margin="20dp"
-            android:drawableLeft="@drawable/ic_account"
             android:background="@drawable/background_button"
-            android:gravity="start"/>
+            android:gravity="center"/>
         <TextView
             android:id="@+id/txtLichSu"
             android:layout_width="match_parent"
@@ -50,9 +49,8 @@
             android:textSize="25dp"
             android:text="Lịch sử"
             android:layout_margin="20dp"
-            android:drawableLeft="@drawable/ic_account"
             android:background="@drawable/background_button"
-            android:gravity="start"/>
+            android:gravity="center"/>
         <TextView
             android:id="@+id/txtBenhDaLuu"
             android:layout_width="match_parent"
@@ -60,9 +58,8 @@
             android:textSize="25dp"
             android:text="Bệnh đã lưu"
             android:layout_margin="20dp"
-            android:drawableLeft="@drawable/ic_account"
             android:background="@drawable/background_button"
-            android:gravity="start"/>
+            android:gravity="center"/>
         <TextView
             android:id="@+id/txtDangXuat"
             android:layout_width="match_parent"
@@ -70,9 +67,8 @@
             android:textSize="25dp"
             android:text="Đăng xuất"
             android:layout_margin="20dp"
-            android:drawableLeft="@drawable/ic_account"
             android:background="@drawable/background_button"
-            android:gravity="start"/>
+            android:gravity="center"/>
 
     </LinearLayout>
 

@@ -46,6 +46,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         mapping();
         getDataUser();
 
+
         final Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +60,6 @@ public class CreateAccountActivity extends AppCompatActivity {
                 } else if(user.length() >= 20 || pass.length() >= 20){
                     CheckConnection.showToast_Short(getApplicationContext(), "Bạn nhập quá dài(usernam, pass < 20 kí tự)");
                 } else if(!pass.equals(confirm)){
-                    Log.d("pass", pass);
-                    Log.d("ConfirmPass", confirm);
                     CheckConnection.showToast_Short(getApplicationContext(), "Comfirm Password không đúng!");
                 } else{
                     int check = 0;
@@ -89,6 +88,14 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("arrayU", String.valueOf(arrayUser.size()));
+    }
+
+
 
     public void mapping() {
         btnRegister = findViewById(R.id.btnRegister);

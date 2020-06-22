@@ -20,7 +20,7 @@ public class SaveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_save);
         Toolbar toolbar = findViewById(R.id.toolBarAccount);
         setSupportActionBar(toolbar);
 
@@ -29,7 +29,7 @@ public class SaveActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         //TkAdapter tkAdapter = new TkAdapter(this, title, imgid);
-        listView = (ListView) findViewById(R.id.lv_of_account);
+        listView = (ListView) findViewById(R.id.lv_of_disease_save);
         //listView.setAdapter(tkAdapter);
 
     }

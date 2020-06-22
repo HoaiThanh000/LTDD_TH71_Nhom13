@@ -32,7 +32,7 @@ public class AccountActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         //TkAdapter tkAdapter = new TkAdapter(this, title, imgid);
-        listView = (ListView) findViewById(R.id.lv_of_account);
+        listView = (ListView) findViewById(R.id.lv_of_disease_watched);
         //listView.setAdapter(tkAdapter);
         final Intent intent1 = new Intent(AccountActivity.this, CreateAccountActivity.class);
         final Intent intent2 = new Intent(AccountActivity.this,HistoryActivity.class);

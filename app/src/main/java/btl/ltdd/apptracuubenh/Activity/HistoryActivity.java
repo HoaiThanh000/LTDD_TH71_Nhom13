@@ -28,7 +28,7 @@ public class HistoryActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         //TkAdapter tkAdapter = new TkAdapter(this, title, imgid);
-        listView = (ListView) findViewById(R.id.lv_of_account);
+        listView = (ListView) findViewById(R.id.lv_of_disease_watched);
         //listView.setAdapter(tkAdapter);
 
     }
