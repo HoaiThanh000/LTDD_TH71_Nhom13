@@ -150,8 +150,7 @@ public class DiseaseDetailActivity extends AppCompatActivity {
         });
         requestQueue.add(stringRequest);
     }
-
-    public void getDataDiseaeseUser(){
+    private void getDataDiseaeseUser(){
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.pathDiseaseUser, new Response.Listener<JSONArray>() {
             @Override

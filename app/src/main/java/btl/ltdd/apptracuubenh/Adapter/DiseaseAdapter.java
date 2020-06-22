@@ -16,8 +16,13 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +42,7 @@ public class DiseaseAdapter extends BaseAdapter {
     private List<Disease> arrayDisease;
     private ArrayList<Disease> arrayList;
     private Context context;
+    private ArrayList<DiseaseUser> arrayDiseaseUser;
 
     public DiseaseAdapter(List<Disease> arrayDisease, Context context) {
         this.arrayDisease = arrayDisease;
@@ -104,7 +110,12 @@ public class DiseaseAdapter extends BaseAdapter {
                 int check = 0;
                 Log.d("userid", String.valueOf(MainActivity.userID));
                 Log.d("diseaseid", String.valueOf(disease.getDiseaseID()));
-                ArrayList<DiseaseUser> arrayDiseaseUser = MainActivity.arrayDiseaseUser;
+                arrayDiseaseUser = MainActivity.arrayDiseaseUser;
+                getDataDiseaeseUser();
+                MainActivity.arrayDiseaseUser.clear();
+                for(int i = 0; i < arrayDiseaseUser.size(); i++){
+                    MainActivity.arrayDiseaseUser.add(arrayDiseaseUser.get(i));
+                }
                 Log.d("arrayDiseaseUser", String.valueOf(arrayDiseaseUser.size()));
                 for(int i = 0; i < arrayDiseaseUser.size(); i++){
                     if(arrayDiseaseUser.get(i).getUserID() == MainActivity.userID && arrayDiseaseUser.get(i).getDiseaseID() == disease.getDiseaseID()){
@@ -162,5 +173,48 @@ public class DiseaseAdapter extends BaseAdapter {
             }
         });
         requestQueue.add(stringRequest);
+    }
+    private void getDataDiseaeseUser(){
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.pathDiseaseUser, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                if(response != null){
+                    Log.d("data", String.valueOf(response));
+                    for (int i = 0; i < response.length(); i++){
+                        JSONObject jsonObject = null;
+                        try {
+                            int userID, diseaseID, saved;
+                            jsonObject = response.getJSONObject(i);
+                            userID = jsonObject.getInt("UserID");
+                            diseaseID = jsonObject.getInt("DiseaseID");
+                            saved = jsonObject.getInt("Saved");
+                            arrayDiseaseUser.add(new DiseaseUser(userID, diseaseID, saved));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                CheckConnection.showToast_Short(context, error.toString());
+            }
+        });
+        jsonArrayRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
     }
 }
