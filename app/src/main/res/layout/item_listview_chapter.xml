@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:gravity="center">
     <TextView
-        android:layout_margin="10dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/txtviewChapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Tên chương bệnh"/>
+        android:text="Tên chương bệnh"
+        android:background="@drawable/botron_duongvien"/>
 </LinearLayout>

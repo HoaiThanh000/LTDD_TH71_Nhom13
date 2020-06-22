@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/ic_home"/>
         <item android:id="@+id/nav_chapter"
             android:title="Chương bệnh"
             android:icon="@drawable/ic_chapter"/>
@@ -11,13 +14,20 @@
             android:icon="@drawable/ic_group"/>
         <item android:id="@+id/nav_disease"
             android:title="Bệnh"
-            android:icon="@drawable/ic_chevron"/>
-        <item android:id="@+id/nav_bl"
-            android:title="Feedback"
-            android:icon="@drawable/ic_bl"/>
-        <item android:id="@+id/nav_information"
-            android:title="Thông tin app"
-            android:icon="@drawable/ic_information"/>
-
+            android:icon="@drawable/ic_disease"/>
     </group>
+    <group>
+        <item android:title="Thông tin">
+            <menu>
+                <item android:id="@+id/nav_feedback"
+                    android:title="Feedback"
+                    android:icon="@drawable/ic_bl"/>
+                <item android:id="@+id/nav_information"
+                    android:title="Thông tin app"
+                    android:icon="@drawable/ic_information"/>
+            </menu>
+        </item>
+    </group>
+
+
 </menu>

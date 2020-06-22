@@ -4,10 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@drawable/nav_header_background"
     android:gravity="bottom"
+    android:background="#7099ff"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical">
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/avatar_defaiult_round"/>
+    <TextView
+        android:id="@+id/txtTenUserNavHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chưa đăng nhập"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textColor="#080808"/>
 
 </LinearLayout>

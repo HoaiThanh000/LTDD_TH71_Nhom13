@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="btl.ltdd.apptracuubenh">
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,22 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateAccountActivity"></activity>
-        <activity android:name=".SiginActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SaveActivity" />
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".UserActivity" />
-        <activity android:name=".UserAccountActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.ProfileUserActivity"></activity>
+        <activity android:name=".Activity.DiseaseDetailActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.SaveActivity" />
+        <activity android:name=".Activity.HistoryActivity" />
+        <activity android:name=".Activity.AccountActivity" />
+        <activity android:name=".Activity.UserActivity" />
+        <activity android:name=".Activity.CreateAccountActivity" />
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewsActivity">
+        <activity android:name=".Activity.InformationUserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
