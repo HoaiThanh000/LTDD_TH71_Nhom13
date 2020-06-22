@@ -10,9 +10,11 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical">
     <ImageView
+        android:id="@+id/imgNavHeader"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@mipmap/avatar_defaiult_round"/>
+        android:src="@drawable/ic_app"
+        android:background="@drawable/background_button"/>
     <TextView
         android:id="@+id/txtTenUserNavHeader"
         android:layout_width="wrap_content"

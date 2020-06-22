@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(edtUserName.getText().toString().equals(u.getUserName()) && edtPassword.getText().toString().equals(u.getPassword())){
                             intent1.putExtra("check", "true");
                             intent1.putExtra("userName", u.getUserName());
+                            intent1.putExtra("userID", u.getUserID());
                             startActivity(intent1);
                             check = 1;
                         }
@@ -94,14 +95,16 @@ public class LoginActivity extends AppCompatActivity {
                     for (int i = 0; i < response.length(); i++){
                         JSONObject jsonObject = null;
                         try {
-                            int UserID;
-                            String userName, fullName, password;
+                            int userID;
+                            String userName, fullName, password, phone, job;
                             jsonObject = response.getJSONObject(i);
-                            UserID = jsonObject.getInt("UserID");
+                            userID = jsonObject.getInt("UserID");
                             fullName = jsonObject.getString("FullName");
                             userName = jsonObject.getString("UserName");
                             password = jsonObject.getString("Password");
-                            arrayUser.add(new User(userName, password));
+                            phone = jsonObject.getString("Phone");
+                            job = jsonObject.getString("Job");
+                            arrayUser.add(new User(userID, fullName, userName, password, phone, job));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

@@ -12,4 +12,6 @@ public class Server {
     public static String pathDeleteDiseaseUser = domain + "deleteDiseaseUser.php";
     public static String pathEditUser = domain + "editUser.php";
     public static String pathSearchDisease = domain + "searchDisease.php";
+    public static String pathSearchDiseaseById = domain + "searchDiseaseById.php";
+    public static String pathEditDiseaseUser = domain + "editDiseaseUser.php";
 }

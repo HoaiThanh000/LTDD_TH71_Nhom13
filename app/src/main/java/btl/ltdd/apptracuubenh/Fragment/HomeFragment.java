@@ -44,8 +44,8 @@ public class HomeFragment extends Fragment {
         viewFlipper = view.findViewById(R.id.viewFlipper);
         ArrayList<String> mangViewFlipper = new ArrayList<>();
         mangViewFlipper.add("https://sohanews.sohacdn.com/zoom/600_315/2016/ava-1478143522959-105-96-492-719-crop-1478143542906.png");
-        mangViewFlipper.add("https://lh3.googleusercontent.com/proxy/-0OzSowP0fS9UT_FiBZZWAbh_8T2a7r7lCUHEKQWcw3bzxAnLNUwxwUZmugQOSlS_dw4l85SS3LFJkUL2aKKm2Zg1obEq7CJ360-FuRAp92fHRsiY1KHnRVt_gJw9HLdOyurk0YvxkDXt_kKxf3I3_9zDDkhdKgbAEpBIFET3lWrLf15H3OzPA");
-        mangViewFlipper.add("https://lh3.googleusercontent.com/proxy/ODY50QI6ccD7evPO8wf0wfyyAWvqQxcrLeuoH_4TQL0XIJtR85ZcOoIJTmmuCarjFe72-gAP-yYkgQI1nfo0EFf_5rKdh9b6wr2FGlLzmBxzIFAwAAA");
+        mangViewFlipper.add("https://binhphuoc.gov.vn/uploads/binhphuoc/news/2020_03/phong-chong-covid-19.png   ");
+        mangViewFlipper.add("https://image.sggp.org.vn/Uploaded/2020/dudbexqdre/2020_03_07/covid_fspr.jpg");
         mangViewFlipper.add("https://campused.s3.ap-south-1.amazonaws.com/2017/04/Guide-to-Good-habits-for-healthy-Life_Course.png");
         mangViewFlipper.add("https://vinmec-prod.s3.amazonaws.com/images/20190607_060744_990408_tap-the-duc-buoi-sa.max-1800x1800.jpg");
         for (int i = 0; i < mangViewFlipper.size(); i++){

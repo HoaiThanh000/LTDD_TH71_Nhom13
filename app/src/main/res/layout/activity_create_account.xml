@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@color/colorText"
+            android:src="@drawable/ic_app"
             android:background="@drawable/background_button"/>
         <TextView
             android:layout_width="match_parent"

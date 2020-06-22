@@ -23,12 +23,15 @@ import java.util.ArrayList;
 
 import btl.ltdd.apptracuubenh.R;
 import btl.ltdd.apptracuubenh.Util.CheckConnection;
+import btl.ltdd.apptracuubenh.Util.DiseaseUser;
 import btl.ltdd.apptracuubenh.Util.Server;
 import btl.ltdd.apptracuubenh.Util.User;
 
 public class ProfileUserActivity extends AppCompatActivity {
     private TextView txtUserName, txtDangXuat, txtLichSu, txtBenhDaLuu, txtThongTin;
     private String user;
+    private ArrayList<User> arrayUser = MainActivity.arrayUser;
+    private int userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,11 @@ public class ProfileUserActivity extends AppCompatActivity {
         Intent intent = getIntent();
         user = intent.getStringExtra("username");
         txtUserName.setText(user);
+        for(int i = 0; i < arrayUser.size(); i++){
+            if(arrayUser.get(i).getUserName().equals(user)){
+                userID = arrayUser.get(i).getUserID();
+            }
+        }
 
         txtThongTin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +60,7 @@ public class ProfileUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+                intent.putExtra("userID", String.valueOf(userID));
                 startActivity(intent);
             }
         });

@@ -15,8 +15,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@color/colorText"
-            android:background="@drawable/background_button"/>
+            android:src="@mipmap/avatar_defaiult_round" />
         <TextView
             android:id="@+id/txtUserNameOfInformationUser"
             android:layout_width="match_parent"
@@ -39,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_signin"
-            android:hint="Username"
+            android:hint="Full name"
             android:inputType="textPersonName"
             android:textSize="20dp"
             android:gravity="start"/>
