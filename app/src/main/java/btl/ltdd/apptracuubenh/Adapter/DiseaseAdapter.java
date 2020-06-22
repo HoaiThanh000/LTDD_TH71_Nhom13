@@ -108,15 +108,7 @@ public class DiseaseAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 int check = 0;
-                Log.d("userid", String.valueOf(MainActivity.userID));
-                Log.d("diseaseid", String.valueOf(disease.getDiseaseID()));
                 arrayDiseaseUser = MainActivity.arrayDiseaseUser;
-                getDataDiseaeseUser();
-                MainActivity.arrayDiseaseUser.clear();
-                for(int i = 0; i < arrayDiseaseUser.size(); i++){
-                    MainActivity.arrayDiseaseUser.add(arrayDiseaseUser.get(i));
-                }
-                Log.d("arrayDiseaseUser", String.valueOf(arrayDiseaseUser.size()));
                 for(int i = 0; i < arrayDiseaseUser.size(); i++){
                     if(arrayDiseaseUser.get(i).getUserID() == MainActivity.userID && arrayDiseaseUser.get(i).getDiseaseID() == disease.getDiseaseID()){
                         check = 1;
@@ -124,6 +116,12 @@ public class DiseaseAdapter extends BaseAdapter {
                 }
                 if(MainActivity.userID != 0 && check == 0){
                     addDiseaseUser(MainActivity.userID, disease.getDiseaseID(), context);
+                    //Cập nhật lại mảng disease user
+                    getDataDiseaeseUser();
+                    MainActivity.arrayDiseaseUser.clear();
+                    for(int i = 0; i < arrayDiseaseUser.size(); i++){
+                        MainActivity.arrayDiseaseUser.add(arrayDiseaseUser.get(i));
+                    }
                 }
                 Intent intent = new Intent(context, DiseaseDetailActivity.class);
                 intent.putExtra("DiseaseID", disease.getDiseaseID());
