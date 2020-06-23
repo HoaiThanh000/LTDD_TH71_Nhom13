@@ -1,5 +1,7 @@
 package btl.ltdd.apptracuubenh.Util;
 
+import android.util.Log;
+
 public class Disease {
     private int diseaseID;
     private String diseaseName;
@@ -69,4 +71,5 @@ public class Disease {
     public void setGroupID(int groupID) {
         this.groupID = groupID;
     }
+
 }

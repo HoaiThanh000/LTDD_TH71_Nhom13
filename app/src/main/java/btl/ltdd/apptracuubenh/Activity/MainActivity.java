@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getDataUser();
         getDataDiseaeseUser();
 
+
         intentCheck = getIntent();
         check = (intentCheck.getStringExtra("check") == null) ? 0 : 1;
         user = intentCheck.getStringExtra("userName");
@@ -311,7 +312,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onResponse(JSONArray response) {
                 if (response != null) {
-                    Log.d("data", String.valueOf(response));
+                    Log.d("dataDiseaseUser", String.valueOf(response));
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = null;
                         try {

@@ -36,7 +36,7 @@ import btl.ltdd.apptracuubenh.Util.Server;
 
 public class HistoryActivity extends AppCompatActivity {
     private ListView listView;
-    private ArrayList<DiseaseUser> arrayDiseaseUser = MainActivity.arrayDiseaseUser;
+    private ArrayList<DiseaseUser> arrayDiseaseUser = ProfileUserActivity.arrayDiseaseUser;
     private ArrayList<Disease> arrayDisease;
     private DiseaseAdapter diseaseAdapter;
     private int userID;
@@ -51,6 +51,9 @@ public class HistoryActivity extends AppCompatActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        for (int i = 0; i < arrayDiseaseUser.size(); i++){
+            arrayDiseaseUser.get(i).Xuat();
+        }
         Intent intent = getIntent();
         userID = Integer.parseInt(intent.getStringExtra("userID"));
 

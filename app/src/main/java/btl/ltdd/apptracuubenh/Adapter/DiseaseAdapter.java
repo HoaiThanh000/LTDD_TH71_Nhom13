@@ -118,11 +118,6 @@ public class DiseaseAdapter extends BaseAdapter {
                     addDiseaseUser(MainActivity.userID, disease.getDiseaseID(), context);
                     //Cập nhật lại mảng disease user
                     getDataDiseaeseUser();
-                    MainActivity.arrayDiseaseUser.clear();
-                    for(int i = 0; i < arrayDiseaseUser.size(); i++){
-                        Log.d("userid", String.valueOf(arrayDiseaseUser.get(i).getUserID()));
-                        MainActivity.arrayDiseaseUser.add(arrayDiseaseUser.get(i));
-                    }
                 }
                 Intent intent = new Intent(context, DiseaseDetailActivity.class);
                 intent.putExtra("DiseaseID", disease.getDiseaseID());

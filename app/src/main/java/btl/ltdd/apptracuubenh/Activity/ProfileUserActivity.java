@@ -32,11 +32,14 @@ public class ProfileUserActivity extends AppCompatActivity {
     private String user;
     private ArrayList<User> arrayUser = MainActivity.arrayUser;
     private int userID;
+    public static ArrayList<DiseaseUser> arrayDiseaseUser = MainActivity.arrayDiseaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_user);
         mapping();
+        arrayDiseaseUser.clear();
+        getDataDiseaeseUser();
 
         Intent intent = getIntent();
         user = intent.getStringExtra("username");
@@ -90,5 +93,56 @@ public class ProfileUserActivity extends AppCompatActivity {
         txtThongTin = findViewById(R.id.txtThongTinTK);
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        arrayDiseaseUser.clear();
+        getDataDiseaeseUser();
+    }
 
+    public void getDataDiseaeseUser() {
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Server.pathDiseaseUser, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                if (response != null) {
+                    Log.d("dataDiseaseUser", String.valueOf(response));
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jsonObject = null;
+                        try {
+                            int userID, diseaseID, saved;
+                            jsonObject = response.getJSONObject(i);
+                            userID = jsonObject.getInt("UserID");
+                            diseaseID = jsonObject.getInt("DiseaseID");
+                            saved = jsonObject.getInt("Saved");
+                            arrayDiseaseUser.add(new DiseaseUser(userID, diseaseID, saved));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                CheckConnection.showToast_Short(getApplicationContext(), error.toString());
+            }
+        });
+        jsonArrayRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
+    }
 }

@@ -36,7 +36,7 @@ import btl.ltdd.apptracuubenh.Util.Server;
 public class SaveActivity extends AppCompatActivity {
 
     private ListView listView;
-    private ArrayList<DiseaseUser> arrayDiseaseUser = MainActivity.arrayDiseaseUser;
+    private  ArrayList<DiseaseUser> arrayDiseaseUser = ProfileUserActivity.arrayDiseaseUser;
     private ArrayList<Disease> arrayDisease;
     private DiseaseAdapter diseaseAdapter;
     private int userID = MainActivity.userID;

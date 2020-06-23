@@ -1,5 +1,7 @@
 package btl.ltdd.apptracuubenh.Util;
 
+import android.util.Log;
+
 public class DiseaseUser {
     private int userID, diseaseID, saved;
 
@@ -31,5 +33,9 @@ public class DiseaseUser {
 
     public void setSaved(int saved) {
         this.saved = saved;
+    }
+
+    public void Xuat(){
+        Log.d("item", String.format("diseaseID: %d, userID: %d, saved: %d",getDiseaseID(), getUserID(), getSaved()) );
     }
 }
