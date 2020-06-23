@@ -66,7 +66,6 @@ public class InformationUserActivity extends AppCompatActivity {
             edtFullName.setText(fullName);
             edtPhone.setText(phone);
             edtJob.setText(job);
-
         }
 
         btnSave.setOnClickListener(new View.OnClickListener() {

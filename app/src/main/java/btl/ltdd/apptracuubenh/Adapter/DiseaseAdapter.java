@@ -120,6 +120,7 @@ public class DiseaseAdapter extends BaseAdapter {
                     getDataDiseaeseUser();
                     MainActivity.arrayDiseaseUser.clear();
                     for(int i = 0; i < arrayDiseaseUser.size(); i++){
+                        Log.d("userid", String.valueOf(arrayDiseaseUser.get(i).getUserID()));
                         MainActivity.arrayDiseaseUser.add(arrayDiseaseUser.get(i));
                     }
                 }
@@ -178,7 +179,6 @@ public class DiseaseAdapter extends BaseAdapter {
             @Override
             public void onResponse(JSONArray response) {
                 if(response != null){
-                    Log.d("data", String.valueOf(response));
                     for (int i = 0; i < response.length(); i++){
                         JSONObject jsonObject = null;
                         try {

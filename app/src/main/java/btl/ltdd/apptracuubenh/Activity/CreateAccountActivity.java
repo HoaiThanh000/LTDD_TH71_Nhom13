@@ -64,7 +64,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 } else{
                     int check = 0;
                     for (User u : arrayUser) {
-                        if(user.equals(u.getUserName().toString())){
+                        if(user.equals(u.getUserName())){
                             check = 1;
                             CheckConnection.showToast_Short(getApplicationContext(), "UserName đã tồn tại!");
                         }
@@ -88,14 +88,6 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d("arrayU", String.valueOf(arrayUser.size()));
-    }
-
-
 
     public void mapping() {
         btnRegister = findViewById(R.id.btnRegister);

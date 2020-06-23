@@ -18,8 +18,6 @@
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.SaveActivity" />
         <activity android:name=".Activity.HistoryActivity" />
-        <activity android:name=".Activity.AccountActivity" />
-        <activity android:name=".Activity.UserActivity" />
         <activity android:name=".Activity.CreateAccountActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>

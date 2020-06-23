@@ -88,7 +88,6 @@ public class HistoryActivity extends AppCompatActivity {
                                 int diseaseID, groupID;
                                 String diseaseName, symptom, advice, Illustration;
                                 jsonObject = jsonArray.getJSONObject(i);
-                                Log.d("res123", String.valueOf(jsonObject));
                                 diseaseID = jsonObject.getInt("DiseaseID");
                                 diseaseName = jsonObject.getString("DiseaseName");
                                 symptom = jsonObject.getString("Symptom");
